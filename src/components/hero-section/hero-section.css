@@ -1,0 +1,11 @@
+#home {
+  background-color: black !important;
+  height: 100vh;
+}
+.hero-container {
+  background-color: black;
+  height: 500px;
+}
+img {
+  height: 50px;
+}
