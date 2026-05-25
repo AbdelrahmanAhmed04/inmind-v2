@@ -1,23 +1,48 @@
 import "./hero-section.css";
-import LogoLight from "../../assets/logo-light.png";
+import BgVideo from "../../assets/hero-video.mp4";
+import { FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 function HeroSection() {
   return (
-    <div className="hero-container" id="home">
-      <div className="hero-header">
-        <a className="logo-container" href="/#home">
-          <img src={LogoLight} alt="Logo" />
-        </a>
-      </div>
+    <div className="hero-container section">
+      <video
+        className="hero-video"
+        src={BgVideo}
+        autoPlay
+        muted
+        loop
+        playsInline
+      ></video>
+      <div className="video-overlay"></div>
+
       <div className="hero-title-container">
-        <p className="hero-subtitle">test</p>
-        <p className="hero-title"></p>
+        <p className="hero-subtitle">Everyone needs a</p>
+        <p className="hero-title">Line</p>
       </div>
       <div className="hero-credits">
         <div className="copyrights">
-          <a href="/"></a> <p></p>
+          <a href="/#home">InMind </a>
+          <p>&nbsp;@ 2026 All rights reserved.</p>
         </div>
-        <div className="scroll-indicator"></div>
-        <div className="social-icons-wrapper"></div>
+        <div className="scroll-indicator">
+          <div className="line">
+            <div className="dot" />
+          </div>
+        </div>
+        <div className="social-icons-wrapper">
+          <a href="#facebook" className="social-icon">
+            <FaFacebook />
+          </a>
+          <a href="#instagram" className="social-icon">
+            <FaInstagram />
+          </a>
+          <a href="#tiktok" className="social-icon">
+            <FaTiktok />
+          </a>
+          <a href="#email" className="social-icon">
+            <MdEmail />
+          </a>
+        </div>
       </div>
     </div>
   );

@@ -1,31 +1,76 @@
-:root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+body {
+  overflow: hidden;
+}
 
-  --sans: system-ui, "Segoe UI", Roboto, sans-serif;
-  --heading: system-ui, "Segoe UI", Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+.section-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: black;
+  color: white;
+  position: relative;
+}
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.section-image {
+  width: 50%;
+  object-fit: cover;
+  height: 100%;
+  opacity: 0.8;
+}
 
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+.section-content {
+  width: 50%;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+.section-title {
+  font-family: "Oswald", sans-serif;
+  font-size: 35px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: center;
+  color: #fff;
+}
+
+.vertical-break {
+  width: 1px;
+  background-color: white;
+  height: 30px;
+}
+.section-text {
+  font-family: "Raleway";
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+  text-align: center;
+  line-height: 2;
+}
+.section-tag {
+  position: absolute;
+  font-family: "Oswald", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  bottom: 0px;
+  left: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.vertical-tag-break {
+  width: 1px;
+  margin-top: 16px;
+  height: 50px;
+  background-color: white;
 }

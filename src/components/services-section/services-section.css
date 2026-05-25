@@ -1,0 +1,16 @@
+#services {
+  background-color: white;
+  color: black;
+  .services-image {
+    opacity: 1;
+  }
+  h3 {
+    color: black;
+  }
+  .vertical-break {
+    background-color: black;
+  }
+  .vertical-tag-break {
+    background-color: black;
+  }
+}
