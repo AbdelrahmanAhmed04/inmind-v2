@@ -11,7 +11,7 @@
   background: transparent;
 }
 .logo {
-  width: 50px;
+  width: 0;
 }
 .hamburger-menu {
   display: flex;

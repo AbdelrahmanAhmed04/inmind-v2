@@ -2,6 +2,8 @@ import "./hero-section.css";
 import BgVideo from "../../assets/hero-video.mp4";
 import { FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
+import LogoLight from "../../assets/logo-light.png";
+
 function HeroSection() {
   return (
     <div className="hero-container section">
@@ -16,8 +18,7 @@ function HeroSection() {
       <div className="video-overlay"></div>
 
       <div className="hero-title-container">
-        <p className="hero-subtitle">Everyone needs a</p>
-        <p className="hero-title">Line</p>
+        <img src={LogoLight} className="hero-logo" alt="" />
       </div>
       <div className="hero-credits">
         <div className="copyrights">
