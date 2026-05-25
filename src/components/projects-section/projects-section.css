@@ -1,0 +1,91 @@
+.projects-section-wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.projects-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.projects-viewport {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  flex: 1;
+}
+
+.projects-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(2, 1fr);
+  grid-auto-columns: calc(100% / 3);
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease;
+}
+
+.project-item {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.project-item > * {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.carousel-nav {
+  position: absolute;
+  background: white;
+  border: none;
+  color: black;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  font-weight: 300;
+}
+
+.carousel-nav:hover {
+  transform: scale(1.1);
+}
+
+.carousel-prev {
+  left: -50px;
+}
+
+.carousel-next {
+  right: -50px;
+}
+
+.projects-section-wrapper:hover .carousel-prev {
+  left: 20px;
+}
+
+.projects-section-wrapper:hover .carousel-next {
+  right: 20px;
+}
+
+.carousel-prev,
+.carousel-next {
+  font-family: "Oswald", sans-serif;
+}

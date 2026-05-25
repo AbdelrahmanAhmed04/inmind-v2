@@ -9,6 +9,7 @@ import { useScrollSnap } from "./hooks/useScrollSnap";
 import "./App.css";
 import ServicesSection from "./components/services-section/ServicesSection";
 import ContactSection from "./components/contact-section/ContactSection";
+import ProjectsSection from "./components/projects-section/ProjectsSection";
 
 function App() {
   useScrollSnap();
@@ -19,6 +20,7 @@ function App() {
       <HeroSection />
       <AboutSection />
       <ServicesSection />
+      <ProjectsSection />
       <ContactSection />
     </>
   );
