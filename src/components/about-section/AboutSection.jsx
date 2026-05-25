@@ -1,5 +1,5 @@
 import "./aboutSection.css";
-import AboutBg from "../../assets/about-bg.jpg";
+import AboutBg from "../../assets/nav-image.jpeg";
 
 function AboutSection() {
   return (
