@@ -1,0 +1,212 @@
+#contact-section-tag {
+  color: black;
+  position: absolute;
+  font-family: "Oswald", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  bottom: 0px;
+  right: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  .vertical-tag-break {
+    background-color: black;
+  }
+}
+.horizontal-break {
+  width: 400px;
+  margin-top: 0px;
+  height: 1px;
+  background-color: white;
+  opacity: 0.6;
+}
+
+.contact-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
+
+.btn-text {
+  color: white;
+  font-family: "Oswald", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: lowercase;
+  letter-spacing: 0.2em;
+  white-space: nowrap;
+  transition: 0.3s ease-in-out;
+}
+
+.btn-text:hover {
+  letter-spacing: 0.3em;
+}
+
+.contact-form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: black;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: formFadeIn 1.5s ease forwards;
+}
+
+@keyframes formFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes formFadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+}
+
+.contact-form-overlay.closing {
+  animation: formFadeOut 1.5s ease forwards;
+}
+
+.contact-form-container {
+  background-color: transparent;
+  padding: 60px 40px;
+  width: 90%;
+  position: relative;
+  border: none;
+}
+
+.close-btn {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn:hover {
+  color: #808080;
+}
+
+.form-content {
+  text-align: center;
+}
+
+.form-title {
+  font-family: "Oswald", sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: white;
+  margin: 0 0 12px 0;
+}
+
+.form-subtitle {
+  font-family: "Oswald", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #999;
+  margin: 0 0 40px 0;
+  letter-spacing: 0.05em;
+}
+
+.contact-form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.form-row input {
+  flex: 1;
+  min-width: 120px;
+}
+
+.contact-form-container input,
+.contact-form-container textarea {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #444;
+  color: white;
+  padding: 12px 0;
+  font-family: "Oswald", sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+}
+
+.contact-form-container input::placeholder,
+.contact-form-container textarea::placeholder {
+  color: #666;
+}
+
+.contact-form-container input:focus,
+.contact-form-container textarea:focus {
+  outline: none;
+  border-bottom-color: white;
+}
+
+.contact-form-container textarea {
+  resize: vertical;
+  min-height: 100px;
+  font-family: "Oswald", sans-serif;
+  border: none;
+  border-top: 1px solid #444;
+  border-bottom: 1px solid #444;
+  padding: 12px 0;
+}
+
+.submit-btn {
+  background: none;
+  border: 1px solid white;
+  color: white;
+  padding: 12px 32px;
+  font-family: "Oswald", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  align-self: center;
+  margin-top: 20px;
+}
+
+.submit-btn:hover {
+  background-color: white;
+  color: black;
+}

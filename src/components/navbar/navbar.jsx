@@ -36,7 +36,7 @@ function Navigation() {
     <>
       <div className="hero-header">
         <a className="logo-container" href="/#home">
-          <img src={LogoLight} alt="Logo" />
+          <img src={LogoLight} alt="Logo" className="logo" />
         </a>
         <button
           className={`hamburger-menu ${menuOpen ? "active" : ""}`}

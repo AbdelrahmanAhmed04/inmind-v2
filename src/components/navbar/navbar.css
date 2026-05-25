@@ -10,7 +10,9 @@
   position: fixed;
   background: transparent;
 }
-
+.logo {
+  width: 50px;
+}
 .hamburger-menu {
   display: flex;
   flex-direction: column;
