@@ -2,18 +2,16 @@ import { useState, useEffect } from "react";
 import "./project-card.css";
 
 function ProjectCard({ image, videoId }) {
-  // --- VIDEO STATE COMMENTED OUT ---
-  // const [videoOpen, setVideoOpen] = useState(false);
-  // const [isClosing, setIsClosing] = useState(false);
+  const [videoOpen, setVideoOpen] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
 
   const handleVideoOpen = () => {
     // --- DISABLED: DO NOTHING WHEN CLICKED ---
-    /* setVideoOpen(true);
-     */
+    setVideoOpen(true);
   };
 
   // --- VIDEO CLOSE LOGIC COMMENTED OUT ---
-  /*
+
   const handleVideoClose = () => {
     setIsClosing(true);
     setTimeout(() => {
@@ -21,15 +19,15 @@ function ProjectCard({ image, videoId }) {
       setIsClosing(false);
     }, 400);
   };
-  */
 
   // --- SCROLL TO CLOSE LISTENERS COMMENTED OUT ---
-  /*
+
   useEffect(() => {
     if (!videoOpen) return;
 
     const handleScroll = () => {
       handleVideoClose();
+      console.log("video close");
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -40,10 +38,9 @@ function ProjectCard({ image, videoId }) {
       window.removeEventListener("wheel", handleScroll);
     };
   }, [videoOpen]);
-  */
 
   // --- OVERLAY INTERACTION LOGIC COMMENTED OUT ---
-  /*
+
   const handleOverlayClick = () => {
     handleVideoClose();
   };
@@ -51,7 +48,6 @@ function ProjectCard({ image, videoId }) {
   const handleModalClick = (e) => {
     e.stopPropagation();
   };
-  */
 
   return (
     <>
@@ -71,16 +67,17 @@ function ProjectCard({ image, videoId }) {
       </div>
 
       {/* --- VIDEO MODAL HTML LAYOUT COMMENTED OUT --- */}
-      {/* {videoOpen && (
+      {videoOpen && (
         <div
           className={`video-modal-overlay ${isClosing ? "closing" : ""}`}
           onClick={handleOverlayClick}
         >
-          <div className="video-modal-container" onClick={handleModalClick}>
-            <button className="video-modal-close" onClick={handleVideoClose}>
-              ✕
-            </button>
+          {/* MOVED OUTSIDE THE CONTAINER */}
+          <button className="video-modal-close" onClick={handleVideoClose}>
+            ✕
+          </button>
 
+          <div className="video-modal-container" onClick={handleModalClick}>
             <div className="video-wrapper">
               <iframe
                 src={`https://player.vimeo.com/video/${videoId}?autoplay=1&muted=1&title=0&byline=0&portrait=0`}
@@ -92,8 +89,7 @@ function ProjectCard({ image, videoId }) {
             </div>
           </div>
         </div>
-      )} 
-      */}
+      )}
     </>
   );
 }

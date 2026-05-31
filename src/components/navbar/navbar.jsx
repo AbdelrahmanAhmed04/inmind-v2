@@ -35,11 +35,8 @@ function Navigation() {
   return (
     <>
       <div className="hero-header">
-        <a className="logo-container" href="/#home">
-          <img src={LogoLight} alt="Logo" className="logo" />
-        </a>
         <button
-          className={`hamburger-menu ${menuOpen ? "active" : ""}`}
+          className={`hamburger-menu ${menuOpen ? "active" : ""} ${isClosing ? "closing" : ""}`}
           onClick={() => (menuOpen ? handleMenuClose() : setMenuOpen(true))}
           aria-label="Toggle menu"
         >

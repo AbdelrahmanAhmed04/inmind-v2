@@ -191,16 +191,18 @@
 .contact-form-container input:focus,
 .contact-form-container textarea:focus {
   outline: none;
-  border-bottom-color: white;
+  border-bottom-color: black; /* Changed from white to black so it stays visible */
 }
-
 .contact-form-container textarea {
-  resize: vertical;
+  resize: none; /* Prevents user resizing from breaking the minimal alignment */
   min-height: 100px;
   font-family: "Oswald", sans-serif;
   border: none;
   border-bottom: 1px solid #444;
-  padding: 12px 0;
+
+  /* Pushes content and placeholder right down to the bottom line */
+  padding: 65px 0 12px 0;
+  box-sizing: border-box;
 }
 
 .submit-btn {

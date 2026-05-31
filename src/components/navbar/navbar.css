@@ -1,9 +1,8 @@
 .hero-header {
-  width: 100%;
+  width: fit-content;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   top: 0;
+  right: 0;
   z-index: 150;
   height: auto;
   padding: 40px 56px;
@@ -64,7 +63,44 @@
     transform: translateY(-8px);
   }
 }
+.hamburger-menu.closing span:nth-child(1) {
+  animation: hamLine1Close 0.3s ease forwards;
+}
 
+.hamburger-menu.closing span:nth-child(2) {
+  animation: hamLine2Close 0.3s ease forwards;
+}
+
+.hamburger-menu.closing span:nth-child(3) {
+  animation: hamLine3Close 0.3s ease forwards;
+}
+
+@keyframes hamLine1Close {
+  from {
+    transform: translateY(8px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes hamLine2Close {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hamLine3Close {
+  from {
+    transform: translateY(-8px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
 .nav-menu {
   position: fixed;
   top: 50%;
