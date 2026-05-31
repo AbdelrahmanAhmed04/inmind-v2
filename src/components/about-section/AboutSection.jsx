@@ -28,7 +28,7 @@ function AboutSection() {
             vision beyond borders.
           </p>
         </div>
-        <div className="section-tag">
+        <div className="section-tag about-section-tag">
           About <div className="vertical-tag-break"></div>
         </div>
       </div>

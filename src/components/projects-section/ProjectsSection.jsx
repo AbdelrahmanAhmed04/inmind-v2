@@ -1,38 +1,59 @@
-import ProjectCard from "../project-card/ProjectCard";
 import { useState, useEffect, useContext } from "react";
+import { HiChevronRight, HiChevronLeft } from "react-icons/hi";
 import { ProjectsContext } from "../../components/projects-context/ProjectsContext";
+import ProjectCard from "../project-card/ProjectCard";
 import "./projects-section.css";
-import { HiChevronRight } from "react-icons/hi"; // Font Awesome version
-import { HiChevronLeft } from "react-icons/hi"; // Heroicons version
-
-const images = import.meta.glob("./assets/*.{jpg,png,webp}", { eager: true });
-function usePreloadAssets() {
-  useEffect(() => {
-    Object.values(images).forEach((module) => {
-      const img = new Image();
-      img.src = module.default;
-    });
-  }, []);
-}
 
 function ProjectsSection() {
   const { projects } = useContext(ProjectsContext);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsPerView = 6;
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  // 1. Create a balanced, processed array of projects
+  const safeProjects = projects || [];
+  const processedProjects =
+    safeProjects.length % 2 !== 0
+      ? [...safeProjects, safeProjects[0]]
+      : safeProjects;
+
+  // Track responsive sizing window breakpoints
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Compute dynamic items layout sizes
+  let itemsPerView = 6;
+  let tracksCount = 3;
+
+  if (windowWidth <= 768) {
+    itemsPerView = 2;
+    tracksCount = 1;
+  } else if (windowWidth <= 1200) {
+    itemsPerView = 4;
+    tracksCount = 2;
+  }
+
   const itemsPerStep = 2;
 
-  const maxIndex = projects.length - itemsPerView;
+  // 2. Base carousel limits on the processed array length
+  const maxIndex = Math.max(0, processedProjects.length - itemsPerView);
 
-  const handleNext = () => {
-    setCurrentIndex((prev) => Math.min(prev + itemsPerStep, maxIndex));
-  };
+  // Prevent sliding out of bounds on browser dimension shift
+  useEffect(() => {
+    if (currentIndex > maxIndex) {
+      setCurrentIndex(maxIndex);
+    }
+  }, [maxIndex, currentIndex]);
 
-  const handlePrevious = () => {
-    setCurrentIndex((prev) => Math.max(prev - itemsPerStep, 0));
-  };
+  const handleNext = () =>
+    setCurrentIndex((p) => Math.min(p + itemsPerStep, maxIndex));
+  const handlePrevious = () =>
+    setCurrentIndex((p) => Math.max(p - itemsPerStep, 0));
 
   return (
-    <div className="projects-section-wrapper section">
+    <div className="projects-section-wrapper section" id="projects">
       <div className="projects-carousel">
         <button className="carousel-nav carousel-prev" onClick={handlePrevious}>
           <HiChevronLeft />
@@ -42,24 +63,26 @@ function ProjectsSection() {
           <div
             className="projects-track"
             style={{
-              left: `-${(currentIndex / 2) * (100 / 3)}%`,
+              left: `-${(currentIndex / 2) * (100 / tracksCount)}%`,
             }}
           >
-            {projects.map((project, index) => {
-              // 1. Resolve the local image path dynamically
+            {/* 3. Map over the processed array instead of the raw database context */}
+            {processedProjects.map((project, index) => {
               const localImagePath = (() => {
-                const localBase = "src/assets/"; // Points directly to your public/assets/ folder
-
                 if (!project.image) return "";
-
-                return project.image.includes(".")
-                  ? localBase + project.image
-                  : `${localBase}${project.image}.webp`;
+                const fileName = project.image.includes(".")
+                  ? project.image
+                  : `${project.image}.webp`;
+                try {
+                  return new URL(`../../assets/${fileName}`, import.meta.url)
+                    .href;
+                } catch {
+                  return "";
+                }
               })();
 
               return (
                 <div className="project-item" key={index}>
-                  {/* 2. Pass the resolved local path down to your ProjectCard */}
                   <ProjectCard image={localImagePath} videoId={project.vid} />
                 </div>
               );

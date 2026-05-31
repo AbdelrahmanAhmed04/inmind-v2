@@ -2,17 +2,31 @@ import "./contact-section.css";
 import ContactBg from "../../assets/contact-image.jpeg";
 import { FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useForm, ValidationError } from "@formspree/react"; // 1. Added Formspree hooks
 
 function ContactSection() {
   const [formOpen, setFormOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
+
+  // 2. Formspree API hook integration using your ID 'xvzynbbd'
+  const [state, handleSubmit] = useForm("xvzynbbd");
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     subject: "",
     message: "",
   });
+
+  // 3. Automatically triggers your 1.5s close transition when a submission succeeds
+  useEffect(() => {
+    if (state.succeeded) {
+      // Reset the local text input values
+      setFormData({ name: "", email: "", subject: "", message: "" });
+      handleFormClose();
+    }
+  }, [state.succeeded]);
 
   const handleFormOpen = () => {
     setFormOpen(true);
@@ -34,17 +48,11 @@ function ContactSection() {
     }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-    handleFormClose();
-  };
-
   return (
     <>
       <div
         className="contact-section-container section-container section"
-        id="Contact"
+        id="contact"
       >
         <div className="contact-content section-content">
           <h3 className="contact-title section-title">
@@ -92,7 +100,14 @@ function ContactSection() {
             </button>
             <div className="form-content">
               <h2 className="form-title">Get in touch</h2>
-              <p className="form-subtitle">Promise, we won't stay silent</p>
+              <p
+                className={`form-subtitle ${state.succeeded ? "success-msg" : ""}`}
+              >
+                {state.succeeded
+                  ? "✓ Your message was sent successfully!"
+                  : "Promise, we won't stay silent"}
+              </p>
+              {/* 4. Swapped console log submission for Formspree endpoint handler */}
               <form onSubmit={handleSubmit}>
                 <div className="form-row">
                   <input
@@ -103,6 +118,12 @@ function ContactSection() {
                     onChange={handleInputChange}
                     required
                   />
+                  <ValidationError
+                    prefix="Name"
+                    field="name"
+                    errors={state.errors}
+                  />
+
                   <input
                     type="email"
                     name="email"
@@ -111,6 +132,12 @@ function ContactSection() {
                     onChange={handleInputChange}
                     required
                   />
+                  <ValidationError
+                    prefix="Email"
+                    field="email"
+                    errors={state.errors}
+                  />
+
                   <input
                     type="text"
                     name="subject"
@@ -118,6 +145,11 @@ function ContactSection() {
                     value={formData.subject}
                     onChange={handleInputChange}
                     required
+                  />
+                  <ValidationError
+                    prefix="Subject"
+                    field="subject"
+                    errors={state.errors}
                   />
                 </div>
                 <textarea
@@ -127,8 +159,23 @@ function ContactSection() {
                   onChange={handleInputChange}
                   required
                 ></textarea>
-                <button type="submit" className="submit-btn">
-                  Submit
+                <ValidationError
+                  prefix="Message"
+                  field="message"
+                  errors={state.errors}
+                />
+
+                {/* 5. Disable button during processing to prevent network spamming */}
+                <button
+                  type="submit"
+                  className="submit-btn"
+                  disabled={state.submitting || state.succeeded}
+                >
+                  {state.submitting
+                    ? "Sending..."
+                    : state.succeeded
+                      ? "Sent ✓"
+                      : "Submit"}
                 </button>
               </form>
             </div>
@@ -138,4 +185,5 @@ function ContactSection() {
     </>
   );
 }
+
 export default ContactSection;

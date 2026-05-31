@@ -106,7 +106,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  animation: menuFadeIn 1.5s ease forwards;
+  animation: menuFadeIn 0.8s ease forwards;
   z-index: 100;
   background-color: black;
   width: 100%;
@@ -138,7 +138,7 @@
 }
 
 .nav-menu.closing {
-  animation: menuFadeOut 1.5s ease forwards;
+  animation: menuFadeOut 0.8s ease forwards;
 }
 
 .nav-menu ul {
@@ -203,4 +203,24 @@
 
 .nav-menu a.active {
   color: #808080;
+}
+@media (max-width: 1200px) {
+}
+@media (max-width: 996px) {
+  .hero-header {
+    padding: 36px 24px;
+  }
+}
+@media (max-width: 768px) {
+  .nav-image {
+    display: none;
+  }
+  .hero-header {
+    padding: 24px;
+  }
+}
+@media (max-width: 576px) {
+  .hero-header {
+    padding: 16px;
+  }
 }

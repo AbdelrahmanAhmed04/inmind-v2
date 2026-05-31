@@ -7,7 +7,8 @@ const NAV_LINKS = [
   { id: "home", label: "Home", image: NavImage },
   { id: "about", label: "About", image: NavImage2 },
   { id: "services", label: "Services", image: NavImage },
-  { id: "contact", label: "Contact", image: NavImage2 },
+  { id: "projects", label: "Projects", image: NavImage2 },
+  { id: "contact", label: "Contact", image: NavImage },
 ];
 
 function Navigation() {
@@ -61,6 +62,7 @@ function Navigation() {
                   href={`#${link.id}`}
                   className={activeLink === link.id ? "active" : ""}
                   onMouseEnter={() => handleLinkHover(link.id)}
+                  onClick={handleMenuClose}
                 >
                   {link.label}
                 </a>

@@ -225,3 +225,15 @@
   letter-spacing: 0.1em;
   font-weight: 600;
 }
+
+@media (max-width: 1200px) {
+}
+@media (max-width: 996px) {
+}
+@media (max-width: 768px) {
+  .contact-form-overlay {
+    width: 100%;
+  }
+}
+@media (max-width: 576px) {
+}

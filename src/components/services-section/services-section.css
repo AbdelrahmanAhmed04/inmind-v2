@@ -14,3 +14,14 @@
     background-color: black;
   }
 }
+@media (max-width: 1200px) {
+}
+@media (max-width: 996px) {
+}
+@media (max-width: 768px) {
+  .services-section-container {
+    flex-direction: column-reverse; /* Reverses the visual order of the children */
+  }
+}
+@media (max-width: 576px) {
+}

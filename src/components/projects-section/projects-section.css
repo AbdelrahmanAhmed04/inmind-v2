@@ -1,6 +1,6 @@
 .projects-section-wrapper {
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,16 +24,18 @@
   flex: 1;
 }
 
+/* TRACK GRID ARCHITECTURE */
 .projects-track {
   display: grid;
   grid-auto-flow: column;
   grid-template-rows: repeat(2, 1fr);
-  grid-auto-columns: calc(100% / 3);
+  grid-auto-columns: calc(100% / 3); /* 3 items wide by default */
   width: 100%;
   height: 100%;
-  position: relative; /* 1. Added to allow the 'left' property to work */
-  transition: left 0.6s ease; /* 2. Changed from transform to left */
+  position: relative;
+  transition: left 0.6s ease;
 }
+
 .project-item {
   width: 100%;
   height: 100%;
@@ -46,6 +48,7 @@
   display: block;
 }
 
+/* CAROUSEL INTERFACES */
 .carousel-nav {
   position: absolute;
   background: white;
@@ -62,15 +65,35 @@
   width: 40px;
   height: 40px;
   border-radius: 8px;
-  font-weight: 300;
+  font-family: "Oswald", sans-serif;
 }
+
+.carousel-nav:hover {
+  transform: scale(1.1);
+}
+
+.carousel-prev {
+  left: -50px;
+}
+.carousel-next {
+  right: -50px;
+}
+
+.projects-section-wrapper:hover .carousel-prev {
+  left: 20px;
+}
+.projects-section-wrapper:hover .carousel-next {
+  right: 20px;
+}
+
 .projects-carousel:has(.video-modal-overlay) .carousel-nav {
   display: none;
 }
+
 .video-modal-close {
-  position: fixed; /* Changed from absolute */
-  top: 6%; /* Sleek spacing from top */
-  right: 20%; /* Sleek spacing from right */
+  position: fixed;
+  top: 6%;
+  right: 20%;
   background: none;
   border: none;
   color: white;
@@ -87,27 +110,32 @@
     transform 0.2s ease;
   z-index: 10000;
 }
-.carousel-nav:hover {
-  transform: scale(1.1);
-}
 
-.carousel-prev {
-  left: -50px;
+/* MEDIA RESPONSIVE BREAKPOINTS */
+@media (max-width: 1200px) {
+  .projects-track {
+    grid-auto-columns: calc(100% / 2); /* 2 items wide configuration */
+  }
 }
-
-.carousel-next {
-  right: -50px;
+@media (max-width: 996px) {
 }
+@media (max-width: 768px) {
+  .carousel-nav {
+    font-size: 14px;
 
-.projects-section-wrapper:hover .carousel-prev {
-  left: 20px;
-}
-
-.projects-section-wrapper:hover .carousel-next {
-  right: 20px;
-}
-
-.carousel-prev,
-.carousel-next {
-  font-family: "Oswald", sans-serif;
+    width: 32px;
+    height: 32px;
+  }
+  .projects-track {
+    grid-auto-columns: 100%; /* Fullscreen 1 item wide configuration */
+  }
+  .carousel-prev {
+    left: 10px;
+  }
+  .carousel-next {
+    right: 10px;
+  }
+  .project-item {
+    display: flex;
+  }
 }
