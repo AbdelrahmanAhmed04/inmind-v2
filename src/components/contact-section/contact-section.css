@@ -19,14 +19,6 @@
   }
 }
 .contact-section-container {
-  color: black;
-  background-color: white;
-  h3 {
-    color: black;
-  }
-  .social-icon {
-    color: black;
-  }
 }
 .horizontal-break {
   width: 400px;
@@ -48,7 +40,7 @@
   opacity: 1;
 }
 .btn-text {
-  color: black;
+  color: white;
   font-family: "Oswald", sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -68,7 +60,7 @@
   left: 0;
   width: 50%;
   height: 100%;
-  background-color: white;
+  background-color: black;
   z-index: 5;
   display: flex;
   align-items: center;
@@ -116,7 +108,7 @@
   right: 30px;
   background: none;
   border: none;
-  color: black;
+  color: white;
   font-size: 28px;
   cursor: pointer;
   padding: 0;
@@ -128,7 +120,7 @@
 }
 
 .close-btn:hover {
-  color: #808080;
+  color: #c0c0c0;
 }
 
 .form-content {
@@ -141,7 +133,7 @@
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: black;
+  color: white;
   margin: 0 0 12px 0;
 }
 
@@ -149,7 +141,7 @@
   font-family: "Oswald", sans-serif;
   font-size: 14px;
   font-weight: 400;
-  color: #999;
+  color: #cecece;
   margin: 0 0 40px 0;
   letter-spacing: 0.05em;
 }
@@ -191,7 +183,6 @@
 .contact-form-container input:focus,
 .contact-form-container textarea:focus {
   outline: none;
-  border-bottom-color: black; /* Changed from white to black so it stays visible */
 }
 .contact-form-container textarea {
   resize: none; /* Prevents user resizing from breaking the minimal alignment */
@@ -208,7 +199,7 @@
 .submit-btn {
   background: none;
   border: 1px solid white;
-  color: black;
+  color: white;
   padding: 12px 32px;
   font-family: "Oswald", sans-serif;
   font-size: 14px;

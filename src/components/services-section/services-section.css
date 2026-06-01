@@ -1,17 +1,17 @@
 #services {
-  background-color: white;
-  color: black;
+  background-color: black;
+  color: white;
   .services-image {
     opacity: 1;
   }
   h3 {
-    color: black;
+    color: white;
   }
   .vertical-break {
-    background-color: black;
+    background-color: white;
   }
   .vertical-tag-break {
-    background-color: black;
+    background-color: white;
   }
 }
 @media (max-width: 1200px) {

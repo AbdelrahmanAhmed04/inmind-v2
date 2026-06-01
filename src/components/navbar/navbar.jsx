@@ -1,14 +1,16 @@
-import NavImage from "../../assets/nav-image.jpeg";
-import NavImage2 from "../../assets/nav-image-2.jpeg";
+import ServicesBg from "../../assets/nav-image-2.jpeg";
+import AboutBg from "../../assets/nav-image.jpeg";
+import ContactBg from "../../assets/contact-image.jpeg";
+
 import { useState } from "react";
 import LogoLight from "../../assets/logo-light.png";
 import "./navbar.css";
 const NAV_LINKS = [
-  { id: "home", label: "Home", image: NavImage },
-  { id: "about", label: "About", image: NavImage2 },
-  { id: "services", label: "Services", image: NavImage },
-  { id: "projects", label: "Projects", image: NavImage2 },
-  { id: "contact", label: "Contact", image: NavImage },
+  { id: "home", label: "Home", image: ServicesBg },
+  { id: "about", label: "About", image: AboutBg },
+  { id: "services", label: "Services", image: ServicesBg },
+  { id: "projects", label: "Projects", image: AboutBg },
+  { id: "contact", label: "Contact", image: ContactBg },
 ];
 
 function Navigation() {

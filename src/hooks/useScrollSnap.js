@@ -41,8 +41,11 @@ export const useScrollSnap = () => {
       if (sections.length === 0) return;
 
       const currentScroll = window.scrollY;
+      if (Math.abs(e.deltaY) < 45) {
+        e.preventDefault();
+        return;
+      }
       const direction = e.deltaY > 0 ? 1 : -1;
-
       let currentSectionIndex = 0;
       for (let i = 0; i < sections.length; i++) {
         if (currentScroll >= sections[i].offsetTop - 50) {
@@ -71,7 +74,7 @@ export const useScrollSnap = () => {
         clearTimeout(scrollTimeoutRef.current);
         scrollTimeoutRef.current = setTimeout(() => {
           isScrollingRef.current = false;
-        }, 200);
+        }, 300);
       }
     };
 
@@ -126,7 +129,7 @@ export const useScrollSnap = () => {
           clearTimeout(scrollTimeoutRef.current);
           scrollTimeoutRef.current = setTimeout(() => {
             isScrollingRef.current = false;
-          }, 200);
+          }, 300);
         }
       }
     };
